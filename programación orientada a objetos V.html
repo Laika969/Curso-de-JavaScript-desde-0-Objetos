@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Programación Orientada a Objetos</title>
+	<script>
+		function Persona(nombrePersona) {
+			this.nombre = nombrePersona;
+			this.info = 'Esta persona se llama: ' + this.nombre;
+			this.mostrarInfo = function() {
+				alert(this.info);
+			}
+		}
+		var persona1 = new Persona('Adan');
+		var persona2 = new Persona('Eva');
+		Persona.prototype.diHola = function () {
+			alert(this.nombre + ' dice hola');
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="Mostrar Info Adan" onclick="persona1.mostrarInfo()">
+	<input type="button" value="Mostrar Info Eva" onclick="persona2.mostrarInfo()">
+	<input type="button" value="Eva dice Hola" onclick="persona2.diHola()">
+</body>
+</html>

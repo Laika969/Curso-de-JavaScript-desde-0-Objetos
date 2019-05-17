@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Programación orientada a objetos</title>
+	<script>
+		function coche (color, fechaConstruc, kilometros) {
+			this.color = color;
+			this.fecha = fechaConstruc;
+			this.kilo = kilometros;
+			this.info = 'Caracteristicas del carro: Es de color ' + this.color + ' fue construido en ' + this.fecha + ' posee un kilometraje de ' + this.kilo;
+			this.mostrarInfo = function() {
+				alert(this.info);
+			}
+		}
+		var coche1 = new coche ('rojo', '20 de abril', '0');
+		var coche2 = new coche ('azul', '4 de septiembre', '300');
+	</script>
+</head>
+<body>
+	<input type="button" value='mostrar info ferrari' onclick="coche1.mostrarInfo()">
+	<input type="button" value='Mostrar info bugatti' onclick="coche2.mostrarInfo()">
+</body>
+</html>

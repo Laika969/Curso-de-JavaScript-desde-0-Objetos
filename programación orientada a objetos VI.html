@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Programación Orientada a Objetos</title>
+	<script>
+		function Domestico() {
+			this.animal = "";
+			this.nombre= "";
+			this.configurarAnimal = function(nuevoAnimal) {
+				this.animal = nuevoAnimal;
+			}
+			this.configurarNombre = function(nuevoNombre) {
+				this.nombre = nuevoNombre;
+			}
+		}
+		var miGato = new Domestico();
+		miGato.ConfigurarAnimal = "Gato";
+		miGato.ConfigurarNombre = "Mauricio";
+		//nuevo constructor que heredara las propiedades de Domestico
+		Perro.prototype = new Domestico();
+		function Perro() {
+			this.raza = "";
+			this.configurarRaza = function(nombreRaza) {
+				this.raza = nombreRaza;
+			}
+			this.mostrarInfo = function(){
+				alert(this.nombre + " es de raza: " + this.raza);
+			}
+		}
+		var miPerro = new Perro();
+		miPerro.configurarNombre("Wanda");
+		miPerro.configurarRaza("Golden Retriever");
+
+	</script>
+</head>
+<body>
+	<input type="button" value="Mostrar info perro" onclick="miPerro.mostrarInfo()" />
+</body>
+</html>

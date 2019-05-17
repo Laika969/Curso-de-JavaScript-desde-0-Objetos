@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Programación Orientada a Objetos</title>
+		<meta charset="utf-8">
+		<script>
+		finction miTipoObjeto() {
+			this.info = "Soy un nuevo objeto básico";
+			this.mostrarInfo = function() {
+				alert(this.info);
+			}
+			this.configurarInfo = function (nuevaInfo) {
+				this.info = nuevaInfo;
+			}
+		}
+		var miNuevoObjeto1 = new miTipoObjeto();
+		var miNuevoObjeto2 = new miTipoObjeto();
+		</script>
+	</head>
+	<body>
+		<input type="button" value="mostrar info 1" onclick="miNuevoObjeto1.mostrarInfo()"/>
+		<input type="button" value="mostrar info 2" onclick="miNuevoObjeto2.mostrarInfo()" />
+		<input type="button" value="configurar info 1" onclick="miNuevoObjeto1.configurarInfo('Hola me llamo arturo')()" />
+	</body>
+</html>
