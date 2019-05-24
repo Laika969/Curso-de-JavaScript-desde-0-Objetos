@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ingredients de una Cookie</title>
+	<script>
+		//Guarda la información del nombre de usuario + fecha de expiración de la cookie.
+		document.cookie = "nombreusuario=alfredo; expires=15/06/2019 00:00:00";
+		//Hace exactamente lo mismo que la de arriba pero configurando la fecha en una variable usando el objeto Date y sus propiedades.
+		var cookieDate = new Date( 2019, 05, 15 );
+		document.cookie = "nombreusuario=alfredo; expires" + cookieDate.toUTCString();
+		//Empleando escape, tenemos una cookie verdadera, que nos codifique los caracteresque normlamente no serán aceptados por una cookie.
+		var cookieDate= new Date( 2019,05,15 );
+		var usuario = "Alfredo Saldeño"; + escape(usuario) + ";expires=" + cookieDate.toUTCString();
+
+		//Ejemplo de una función que maneje todos los elementos de una cookie,dejando que la función se encargue de la administración de los escapes y el manejo de atributos de la misma.
+		function createCookie(name, value, days, path, domain, secure) {
+			//Convierte el número de días requeridos para la expiración en un string conveniente para la cookie
+			if (days) {
+				var date = new Date();
+				date.setTime(date.getTime() + (days * 24 * 60 * 1000));
+				var expires = date.toGMTString();
+			}
+			//fin de la función.
+
+			else var expirires = "";
+			//Los argumentos "name" y "value" se unene en un string name. escapamos el value para evitar errores con caracteres prohibidos
+			cookieString = name + "=" + escape(value);
+			if (expires) cookieString += "; expires=" + expires;
+			if(path) cookieString += "; path=" + escape(path);
+			if(domain) cookieString += "; domain" + escape(domain);
+			if(secure) cookieString += "; secure";
+			document.cookie = cookieString;
+		}
+		createCookie("nombreusuario", "Alfredo Saldeño", 5);
+		createCookie("país", "Colombia", 5);
+		createCookie("estatus", "registrado", 5);
+
+	</script>
+</head>
+<body>
+	Comprueba las cookies para este codigo empleando las herramientas de inspección de codigo de tu navegador.
+</body>
+</html>
